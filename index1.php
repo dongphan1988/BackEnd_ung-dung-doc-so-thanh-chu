@@ -25,17 +25,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if ($num >= 100) {
         if ($num % 100 == 0) {
             echo $arr[$num[0]] . " hundred " ;
-        } else if ($num[1] . $num[2] <= 19) {
+        } else if ($num[1] . $num[2] <= 19&&$num[1] . $num[2] >10) {
             echo $arr[$num[0]] . " hundred " . $arr2[$num[2]];
         } else {
-            echo $arr[$num[0]] . " hundred and " . $arr1[$num[1]] . " " . $arr[$num[2]];
+            echo $arr[$num[0]] . " hundred and " . $arr1[$num[1]] . " " . $arr[$num[1].$num[2]];
         }
     } else if ($num >= 20) {
         echo $arr1[$num[0]] . " " . $arr[$num[1]];
-    } else if ($num >= 11 && $num < 20) {
+    } else if ($num >10 && $num < 20) {
         echo $arr2[$num[1]];
     } else {
-        echo $arr[$num[0]];
+        echo $arr[$num[0].$num[1]];
     }
 }
 ?>
