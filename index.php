@@ -14,7 +14,7 @@
     <input type="submit" value="check number"/>
 </form>
 <?php
-            // Hàm chuyển đổi số thành chữ của các số có một chữ số
+// Hàm chuyển đổi số thành chữ của các số có một chữ số
 function lessThan10($number)
 {
     switch ($number[strlen($number) - 1]) {
@@ -53,7 +53,8 @@ function lessThan10($number)
             break;
     }
 }
-            // Hàm chuyển đổi số thành chữ của các số từ 10 tới 19
+
+// Hàm chuyển đổi số thành chữ của các số từ 10 tới 19
 function during10to19($number)
 {
     switch ($number[strlen($number) - 1]) {
@@ -89,7 +90,8 @@ function during10to19($number)
             break;
     }
 }
-            // Hàm chuyển đổi số thành chữ của các số từ 20 tới 99
+
+// Hàm chuyển đổi số thành chữ của các số từ 20 tới 99
 function greaterThan20($number)
 {
     switch ($number[strlen($number) - 2]) {
@@ -119,7 +121,8 @@ function greaterThan20($number)
             break;
     }
 }
-        // Hàm chuyển đổi số thành chữ của số hàng trăm
+
+// Hàm chuyển đổi số thành chữ của số hàng trăm
 function Hundreds($number)
 {
     switch ($number[strlen($number) - 3]) {
@@ -152,39 +155,48 @@ function Hundreds($number)
             break;
     }
 }
-        // Hàm chuyển đổi thành chữ của các số có 2 chữ số
+
+// Hàm chuyển đổi thành chữ của các số có 2 chữ số
 function twoNumber($number)
 {
     if ($number < 20) {
         return during10to19($number);
-    } else if ($number[strlen($number) - 1] == 0) {
+    }
+    if ($number[strlen($number) - 1] == 0) {
         return greaterThan20($number);
     } else {
         return greaterThan20($number) . " " . lessThan10($number);
     }
 }
-        // Hàm chuyển đổi thành chữ của các số có 3 chữ số
+
+// Hàm chuyển đổi thành chữ của các số có 3 chữ số
 function threeNumber($number)
 {
     if ($number % 100 == 0) {
         return Hundreds($number);
-    } elseif ($number[1] == 0) {
+    }
+    if ($number[1] == 0) {
         return Hundreds($number) . " and " . lessThan10($number[2]);
     } else {
         return Hundreds($number) . " and " . twoNumber($number[1] . $number[2]);
     }
 }
-        //Hàm chuyển đổi số thành chữ của số bé hơn 1000
+
+//Hàm chuyển đổi số thành chữ của số bé hơn 1000
 function changenumbertoLetter($number)
 {
-    if ($number >= 1000) {
+    if (strlen($number) > 3) {
         echo "out of ability";
-    } elseif ($number >= 100) {
-        echo threeNumber($number);
-    } elseif ($number >= 10) {
-        echo twoNumber($number);
     } else {
-        echo lessThan10($number);
+        if (strlen($number) == 3) {
+            echo threeNumber($number);
+        }
+        if (strlen($number) == 2) {
+            echo twoNumber($number);
+        }
+        if (strlen($number) == 1) {
+            echo lessThan10($number);
+        }
     }
 }
 
