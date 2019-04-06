@@ -187,17 +187,17 @@ function changenumbertoLetter($number)
 {
     if (strlen($number) > 3) {
         echo "out of ability";
-    } else {
-        if (strlen($number) == 3) {
-            echo threeNumber($number);
-        }
-        if (strlen($number) == 2) {
-            echo twoNumber($number);
-        }
-        if (strlen($number) == 1) {
-            echo lessThan10($number);
-        }
     }
+    if (strlen($number) == 3) {
+        echo threeNumber($number);
+    }
+    if (strlen($number) == 2) {
+        echo twoNumber($number);
+    }
+    if (strlen($number) == 1) {
+        echo lessThan10($number);
+    }
+
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
