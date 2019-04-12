@@ -175,8 +175,8 @@ function threeNumber($number)
     if ($number % 100 == 0) {
         return Hundreds($number);
     }
-    if ($number[1] == 0) {
-        return Hundreds($number) . " and " . lessThan10(strlen($number)-1);
+    if ($number[strlen($number)-2] == 0) {
+        return Hundreds($number) . " and " . lessThan10($number[strlen($number)-1]);
     } else {
         return Hundreds($number) . " and " . twoNumber($number[strlen($number)-2] . $number[strlen($number)-1]);
     }
