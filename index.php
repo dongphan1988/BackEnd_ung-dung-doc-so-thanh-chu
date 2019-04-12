@@ -176,9 +176,9 @@ function threeNumber($number)
         return Hundreds($number);
     }
     if ($number[1] == 0) {
-        return Hundreds($number) . " and " . lessThan10($number[2]);
+        return Hundreds($number) . " and " . lessThan10(strlen($number)-1);
     } else {
-        return Hundreds($number) . " and " . twoNumber($number[1] . $number[2]);
+        return Hundreds($number) . " and " . twoNumber($number[strlen($number)-2] . $number[strlen($number)-1]);
     }
 }
 
